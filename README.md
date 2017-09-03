@@ -1,5 +1,5 @@
 # Drivers-and-interfacing-
-**This repository include drivers that enables AVR uC to interface different peripherals like :
+**This repository include drivers that enables AVR uC to interface different peripherals like :**
 
 I/O PORTs to interface :
 - keypads - LCDs - switches - leds 
