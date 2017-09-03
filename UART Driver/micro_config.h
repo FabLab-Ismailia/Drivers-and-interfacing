@@ -1,8 +1,7 @@
 /*
  * micro_config.h
  *
- * Created: 1/3/2015 11:28:01 PM
- *  Author: Mohamed Tarek
+ *  Author: Mohamed Hemed
  */ 
 
 
