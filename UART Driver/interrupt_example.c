@@ -30,42 +30,23 @@ and send it to the microcontroller via uart .
 
 */
 
-
 #include "micro_config.h"
 volatile unsigned char recieved_data = 0 ; 
 void UART_init (unsigned int baud) ; 
 int main(void)
-{
-	  UART_init(9600); 
-    DDRA =0xff ; 
+{   
+	UART_init(9600); 
+        DDRA =0xff ; 
    	DDRB |= (1<<PB0 ) |(1<<PB1) ; 
-	  sei();                                   // enable global interrupt 
+	sei();                                   // enable global interrupt 
 	
   while(1)
-    {   
-		
-		if (recieved_data == '1') 
-		{
-			PORTA |= 1<<PA0 ;                          // led indicator 1 
-		}
-		 else if  (recieved_data == '2') 
-        {
-		PORTA |= 1<<PA1 ;                             // led indicator 2
-		}
-		else if  (recieved_data == '3')
-	    {
-		PORTA |= 1<<PA2 ;                               // led indicator 3 
-		}
-		 else if(recieved_data == '4')
-	    {
-		PORTA |= 1<<PA3 ;                               // led indicator 4
-		}
-		 else if (recieved_data == '5')
-		 {
-  
-		PORTA |= 1<<PA4 ;	                              // led indicator 5 
-		}
-		
+       {   
+	         if (recieved_data == '1')        PORTA |= 1<<PA0 ;    // led indicator 1
+		 else if  (recieved_data == '2') PORTA |= 1<<PA1 ;    // led indicator 2
+	         else if  (recieved_data == '3')	  PORTA |= 1<<PA2 ;   // led indicator 3 
+		 else if(recieved_data == '4')    PORTA |= 1<<PA3 ;   // led indicator 4
+		 else if (recieved_data == '5')   PORTA |= 1<<PA4 ;   // led indicator 5 		
 	}
 }
 
@@ -74,19 +55,3 @@ ISR (USART_RXC_vect)
 recieved_data = UDR ; 	
 PORTB ^= 1<<PB1 ;	                              // led indicator for recive flag 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
